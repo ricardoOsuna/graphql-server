@@ -1,0 +1,69 @@
+# Resolved error: use type date
+# https://stackoverflow.com/questions/49693928/date-and-json-in-type-definition-for-graphql
+scalar Date
+
+# Models
+type Client {
+  _id: ID
+  firstName: String
+  lastName: String
+  company: String
+  age: Int
+  birthdate: Date
+  status: Int
+  emails: [Email]
+  phones: [Phone]
+}
+type Email {
+  email: String
+  reference: String
+  default: Boolean
+  status: Int
+}
+type Phone {
+  phone: Int
+  reference: String
+  default: Boolean
+  status: Int
+}
+
+# Inputs
+input CreateEmailInput {
+  email: String!
+  reference: String!
+  default: Int
+}
+input CreatePhoneInput {
+  phone: Int!
+  reference: String!
+  default: Int
+}
+input CreateClientInput {
+  _id: ID
+  firstName: String!
+  lastName: String!
+  birthdate: Date
+  age: Int
+  company: String!
+  emails: [CreateEmailInput]!
+  phones: [CreatePhoneInput]!
+}
+input UpdateClientInput {
+  _id: ID
+  firstName: String
+  lastName: String
+  company: String
+  age: Int
+  birthdate: Date
+  status: Int
+}
+
+# CRUD
+type Query {
+  getClients(limit: Int): [Client]
+  getClient(_id: ID): Client
+}
+type Mutation {
+  createClient(input: CreateClientInput) : Client
+  updateClient(input: UpdateClientInput) : Client
+}
