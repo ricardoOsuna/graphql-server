@@ -15,12 +15,14 @@ type Client {
   phones: [Phone]
 }
 type Email {
+  _id: ID
   email: String
   reference: String
   default: Boolean
   status: Int
 }
 type Phone {
+  _id: ID
   phone: Int
   reference: String
   default: Boolean
@@ -39,7 +41,6 @@ input CreatePhoneInput {
   default: Int
 }
 input CreateClientInput {
-  _id: ID
   firstName: String!
   lastName: String!
   birthdate: Date
@@ -49,7 +50,7 @@ input CreateClientInput {
   phones: [CreatePhoneInput]!
 }
 input UpdateClientInput {
-  _id: ID
+  _id: ID!
   firstName: String
   lastName: String
   company: String

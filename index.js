@@ -4,11 +4,13 @@ import { ApolloServer } from 'apollo-server-express'
 import { typeDefs } from './src/schema';
 import { resolvers } from './src/resolvers';
 
-// Define underscorejs
-// https://underscorejs.org/
+/**
+ * Define underscorejs
+ * https://underscorejs.org/
+ */
 global._ = _;
 
-// If it´s necessary use the .env file, put the next line to load data to process.env
+// If it´s necessary use the .env file, put the next line to l data into process.env
 require('dotenv').config();
 const port = process.env.APP_PORT;
 
