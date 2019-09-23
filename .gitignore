@@ -10,6 +10,7 @@ npm-debug.log
 ../.idea
 lib/
 
+DS_Store
 .env
 package-lock.json
 .nyc_output

@@ -63,6 +63,8 @@ input UpdateClientInput {
 type Query {
   getClients(limit: Int): [Client]
   getClient(_id: ID): Client
+  getEmailsByClient(clientId: ID): [Email]
+  getPhonesByClient(clientId: ID): [Phone]
 }
 type Mutation {
   createClient(input: CreateClientInput) : Client
