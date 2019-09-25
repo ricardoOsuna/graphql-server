@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
 import express from 'express';
-import { ApolloServer } from 'apollo-server-express'
 import { typeDefs } from './src/schema';
 import { resolvers } from './src/resolvers';
+import { ApolloServer } from 'apollo-server-express'
 
 /**
  * Define underscorejs

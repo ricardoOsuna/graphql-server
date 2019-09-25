@@ -20,6 +20,7 @@ type Email {
   reference: String
   default: Boolean
   status: Int
+  client: ID
 }
 type Phone {
   _id: ID
@@ -27,6 +28,7 @@ type Phone {
   reference: String
   default: Boolean
   status: Int
+  client: Client
 }
 
 # Inputs
@@ -38,6 +40,11 @@ input CreateEmailInput {
 input CreatePhoneInput {
   phone: Int!
   reference: String!
+  default: Int
+}
+input UpdateItemInput {
+  _id: ID!
+  reference: String
   default: Int
 }
 input CreateClientInput {
@@ -68,5 +75,10 @@ type Query {
 }
 type Mutation {
   createClient(input: CreateClientInput) : Client
+  createEmail(clientId: ID, input: [CreateEmailInput]) : [Email]
+  createPhone(clientId: ID, input: [CreatePhoneInput]) : [Phone]
+
   updateClient(input: UpdateClientInput) : Client
+  updateEmail(input: UpdateItemInput) : Email
+  updatePhone(input: UpdateItemInput) : Phone
 }

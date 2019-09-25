@@ -1,6 +1,10 @@
 import { Clients } from '../../../../db'
 
-const findClientService = async (limit) => {
+/**
+ *
+ * @param {*} limit: The number of client to obtain -> is not required
+ */
+const findClientService = async limit => {
   return await Clients.find({})
     .limit(limit);
 };

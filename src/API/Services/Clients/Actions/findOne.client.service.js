@@ -1,8 +1,12 @@
 import { Clients } from '../../../../db'
 
-const findOneClientService = async (_id) => {
-  return await Clients.findOne({_id})
-    .populate('emails');
+/**
+ *
+ * @param {*} _id: Specific _id of client to find
+ */
+
+const findOneClientService = async _id => {
+  return await Clients.findOne({_id});
 };
 
 export default findOneClientService;

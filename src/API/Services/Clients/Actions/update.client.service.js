@@ -1,4 +1,9 @@
-import { Clients } from '../../../../db'
+import { Clients } from '../../../../db';
+
+/**
+ *
+ * @param {*} client: Is the params of client to update
+ */
 
 const updateClientService = async client => {
   client = JSON.parse(JSON.stringify(client));

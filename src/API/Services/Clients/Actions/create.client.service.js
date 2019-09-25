@@ -1,6 +1,12 @@
 import { Clients, Emails, Phones } from '../../../../db'
 import createClientHelper from '../../../Helpers/Clients/create.client.helper';
 
+/**
+ *
+ * @param {*} client: Is the params to create a client
+ */
+
+
 const createClientService = async client => {
   let _id;
   client = JSON.parse(JSON.stringify(client));

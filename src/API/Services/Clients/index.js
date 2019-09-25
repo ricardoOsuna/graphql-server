@@ -1,7 +1,8 @@
 import findClientService from './Actions/find.client.service';
-import findOneClientService from './Actions/findOne.client.service';
 import createClientService from './Actions/create.client.service';
 import updateClientService from './Actions/update.client.service';
+import destroyClientService from './Actions/destroy.client.service';
+import findOneClientService from './Actions/findOne.client.service';
 
 export const clientsServices = {
   Query: {
@@ -11,5 +12,6 @@ export const clientsServices = {
   Mutation: {
     createClient: async (root, { input }) => await createClientService(input),
     updateClient: async (root, { input }) => await updateClientService(input),
+    // destroyClient: async (root, { _id }) => await destroyClientService(_id),
   }
 };
