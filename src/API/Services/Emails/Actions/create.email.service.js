@@ -12,7 +12,7 @@ const createEmailService = async (emails, clientId) => {
   try {
     return await createItemHelper(emails, clientId, clientsItems.EMAIL, Emails);
   } catch(err) {
-    console.log(err);
+    console.error(err);
     return err;
   }
 };

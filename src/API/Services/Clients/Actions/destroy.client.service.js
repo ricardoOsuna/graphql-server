@@ -9,7 +9,6 @@ import mongooseArchive from 'mongoose-archive'
 const destroyClientService = async _id => {
   Clients.plugin(mongooseArchive);
   const clientDeleted = await Clients.archive(_id);
-  console.log('clientDeleted => ', clientDeleted);
   return clientDeleted;
 };
 

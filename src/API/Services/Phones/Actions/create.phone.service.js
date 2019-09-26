@@ -11,7 +11,7 @@ const createPhoneService = async (phones, clientId) => {
   try {
     return await createItemHelper(phones, clientId, clientsItems.PHONE, Phones);
   } catch(err) {
-    console.log(err);
+    console.error(err);
     return err;
   }
 };

@@ -11,7 +11,7 @@ const updatePhoneService = async phones => {
   try {
     return await updateItemHelper(phones, clientsItems.PHONE, Phones);
   } catch(err) {
-    console.log(err);
+    console.error(err);
     return err;
   }
 };

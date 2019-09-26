@@ -11,7 +11,7 @@ const updateEmailService = async emails => {
   try {
     return await updateItemHelper(emails, clientsItems.EMAIL, Emails);
   } catch(err) {
-    console.log(err);
+    console.error(err);
     return err;
   }
 };

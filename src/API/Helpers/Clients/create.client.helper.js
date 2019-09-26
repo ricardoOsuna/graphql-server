@@ -9,14 +9,14 @@ import clientsItems from "../../Enums/clients.items";
  * @param {*} newClient: is a new client?
  */
 const createClientHelper = async ({ emails, phones }) => {
-  const validateEmail = await validateEmailOrPhone(emails, clientsItems.EMAIL, true);
-  if (validateEmail) {
-    return validateEmail
+  const emailHasError = await validateEmailOrPhone(emails, clientsItems.EMAIL, true);
+  if (emailHasError) {
+    return emailHasError
   }
 
-  const validatePhone = await validateEmailOrPhone(phones, clientsItems.PHONE, true);
-  if (validatePhone) {
-    return validatePhone
+  const phoneHasError = await validateEmailOrPhone(phones, clientsItems.PHONE, true);
+  if (phoneHasError) {
+    return phoneHasError
   }
 };
 
