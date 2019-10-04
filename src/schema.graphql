@@ -13,22 +13,30 @@ type Client {
   status: Int
   emails: [Email]
   phones: [Phone]
+  createdAt: Date
+  updatedAt: Date
+  deletedAt: Date
 }
+
 type Email {
   _id: ID
   email: String
-  reference: String
+  reference: String!
   default: Boolean
-  status: Int
   client: ID
+  createdAt: Date
+  updatedAt: Date
+  deletedAt: Date
 }
 type Phone {
   _id: ID
   phone: Int
   reference: String
   default: Boolean
-  status: Int
-  client: Client
+  client: ID
+  createdAt: Date
+  updatedAt: Date
+  deletedAt: Date
 }
 
 # Inputs
@@ -53,6 +61,7 @@ input CreateClientInput {
   birthdate: Date
   age: Int
   company: String!
+  status: Int
   emails: [CreateEmailInput]!
   phones: [CreatePhoneInput]!
 }
@@ -64,21 +73,32 @@ input UpdateClientInput {
   age: Int
   birthdate: Date
   status: Int
+  createdAt: Date
+  updatedAt: Date
+}
+input FiltersInput  {
+  sortCreatedAt: String
+  firstName: String
+  lastName: String
+  company: String
 }
 
 # CRUD
 type Query {
-  getClients(limit: Int): [Client]
-  getClient(_id: ID): Client
-  getEmailsByClient(clientId: ID): [Email]
-  getPhonesByClient(clientId: ID): [Phone]
+  countClients: Int
+  getClient(_id: ID!): Client
+  getClients(limit: Int, offset: Int, filters: FiltersInput): [Client]
+  getEmailsByClient(clientId: ID!): [Email]
+  getPhonesByClient(clientId: ID!): [Phone]
 }
 type Mutation {
   createClient(input: CreateClientInput) : Client
-  createEmail(clientId: ID, input: [CreateEmailInput]) : [Email]
-  createPhone(clientId: ID, input: [CreatePhoneInput]) : [Phone]
+  createEmail(clientId: ID!, input: [CreateEmailInput]) : [Email]
+  createPhone(clientId: ID!, input: [CreatePhoneInput]) : [Phone]
 
   updateClient(input: UpdateClientInput) : Client
   updateEmail(input: UpdateItemInput) : Email
   updatePhone(input: UpdateItemInput) : Phone
+
+  destroyClient(_id: ID!): Client
 }

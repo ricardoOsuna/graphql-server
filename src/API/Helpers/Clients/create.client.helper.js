@@ -1,5 +1,5 @@
 import validateEmailOrPhone from "../../Shared/validateEmailOrPhone";
-import clientsItems from "../../Enums/clients.items";
+import clientsItems from "../../Models/Enums/clients.items";
 
 /**
  *

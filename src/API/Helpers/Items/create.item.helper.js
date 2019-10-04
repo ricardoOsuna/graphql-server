@@ -10,10 +10,15 @@ import validateEmailOrPhone from "../../Shared/validateEmailOrPhone";
  */
 
 const createItemHelper = async (items, clientId, type, modelReference) => {
-  // Check if the client exist
-  const isClientExist = await getClient(clientId);
-  if (!isClientExist) {
+  /**
+   * Client must be exist
+   * Client must be enabled
+   */
+  const clientExist = await getClient(clientId);
+  if (!clientExist) {
     return Error('The user doesn´t exist');
+  } else if (clientExist.status) {
+    return Error(`Cannot create ${type}s because the client it´s disabled`)
   }
 
   // Check if the items are valid
@@ -24,7 +29,10 @@ const createItemHelper = async (items, clientId, type, modelReference) => {
 
   // Add the reference of the client
   items = items.map(x => {
-    return { ...x, client: clientId }
+    return {
+      ..._.pick(x, [`${type}`, 'reference', 'default']),
+      client: clientId
+    }
   });
 
   // Check if some new item it´s default to set in false all of them

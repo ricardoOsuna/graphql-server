@@ -1,7 +1,7 @@
 import emailExist from './emailExist';
 import phoneExist from './phoneExist';
-import clientsItems from '../Enums/clients.items';
-import RegExpSamples from '../Enums/regular.expressions';
+import clientsItems from '../Models/Enums/clients.items';
+import RegExpSamples from '../Models/Enums/regular.expressions';
 
 /**
  *

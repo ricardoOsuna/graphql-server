@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import express from 'express';
 import { typeDefs } from './src/schema';
 import { resolvers } from './src/resolvers';

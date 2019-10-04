@@ -1,16 +1,16 @@
-import { emailsServices } from './API/Services/Emails';
-import { phonesServices } from './API/Services/Phones';
-import { clientsServices } from './API/Services/Clients';
+import ControllerClients from './API/Controllers/Clients';
+import ControllerEmails from './API/Controllers/Emails';
+import ControllerPhones from './API/Controllers/Phones';
 
 export const resolvers = {
   Query: {
-    ...emailsServices.Query,
-    ...phonesServices.Query,
-    ...clientsServices.Query,
+    ...ControllerClients.Query,
+    ...ControllerEmails.Query,
+    ...ControllerPhones.Query,
   },
   Mutation: {
-    ...emailsServices.Mutation,
-    ...phonesServices.Mutation,
-    ...clientsServices.Mutation,
+    ...ControllerClients.Mutation,
+    ...ControllerEmails.Mutation,
+    ...ControllerPhones.Mutation,
   }
 };

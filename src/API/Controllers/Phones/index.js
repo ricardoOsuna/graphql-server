@@ -1,8 +1,8 @@
-import createPhoneService from './Actions/create.phone.service';
-import updatePhoneService from './Actions/update.phone.service';
-import findPhonesByClientService from './Actions/find.phone.by.client.service';
+import createPhoneService from './Services/create.phone.service';
+import updatePhoneService from './Services/update.phone.service';
+import findPhonesByClientService from './Services/find.phone.by.client.service';
 
-export const phonesServices = {
+const ControllerPhones = {
   Query: {
     getPhonesByClient: async (root, { clientId }) => await findPhonesByClientService(clientId),
   },
@@ -11,3 +11,5 @@ export const phonesServices = {
     updatePhone: async (root, { input }) => await updatePhoneService(input),
   },
 };
+
+export default ControllerPhones;

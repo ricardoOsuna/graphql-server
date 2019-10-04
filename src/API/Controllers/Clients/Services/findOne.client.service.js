@@ -6,7 +6,12 @@ import { Clients } from '../../../../db'
  */
 
 const findOneClientService = async _id => {
-  return await Clients.findOne({_id});
+  try {
+    return await Clients.findById(_id);
+  } catch (err) {
+    console.error(err);
+    return err;
+  }
 };
 
 export default findOneClientService;

@@ -1,3 +1,5 @@
+import getClient from "../../Shared/getClient";
+
 /**
  *
  * @param {*} items: The items/phone to update
@@ -13,8 +15,17 @@ const updateItemHelper = async (item, type, modelReference) => {
     return Error(`The ${type} doesn´t exist`)
   }
 
-  // Get data of item
+  /**
+   * Client must be exist
+   * Client must be enabled
+   */
   const { client } = itemExist;
+  const clientExist = await getClient(client);
+  if (!clientExist) {
+    return Error('The user doesn´t exist');
+  }
+
+  // Get data of item
   const itemData = _.pick(item, [
     'reference',
     'default'

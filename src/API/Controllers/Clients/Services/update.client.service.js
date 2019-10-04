@@ -24,7 +24,7 @@ const updateClientService = async client => {
     }
 
     const clientUpdated = await Clients.updateOne({ _id }, dataClient);
-    if (!clientUpdated.n) {
+    if (!clientUpdated.ok) {
       return Error('The client doesn´t exist');
     }
 

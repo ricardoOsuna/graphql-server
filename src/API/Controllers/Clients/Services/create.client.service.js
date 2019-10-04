@@ -17,22 +17,25 @@ const createClientService = async client => {
 
     // Create new client
     const dataClient = new Clients(
-      _.pick(client, [
-        'firstName',
-        'lastName',
-        'age',
-        'birthdate',
-        'company'
-      ])
+      _.pick(client,
+      'firstName',
+      'lastName',
+      'age',
+      'birthdate',
+      'company',
+      'status')
     );
-    const newClient = await dataClient.save();
+
+    const newClient = await Clients.create(dataClient);
     _id = newClient._id;
 
     // Add the reference of client to their email(s)
     let emails = client.emails.map(email => {
       return {
         ...email,
-        client: _id
+        client: _id,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
       }
     });
 
@@ -40,7 +43,9 @@ const createClientService = async client => {
     let phones = client.phones.map(phone => {
       return {
         ...phone,
-        client: _id
+        client: _id,
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
       }
     });
 

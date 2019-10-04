@@ -1,5 +1,5 @@
 import { Phones } from "../../../../db";
-import clientsItems from "../../../Enums/clients.items";
+import clientsItems from "../../../Models/Enums/clients.items";
 
 /**
  *

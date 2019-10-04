@@ -1,8 +1,8 @@
-import createEmailService from './Actions/create.email.service';
-import updateEmailService from './Actions/update.email.service';
-import findEmailsByClientService from './Actions/find.email.by.client.service';
+import createEmailService from './Services/create.email.service';
+import updateEmailService from './Services/update.email.service';
+import findEmailsByClientService from './Services/find.email.by.client.service';
 
-export const emailsServices = {
+const ControllerEmails = {
   Query: {
     getEmailsByClient: async (root, { clientId }) => await findEmailsByClientService(clientId),
   },
@@ -11,3 +11,5 @@ export const emailsServices = {
     updateEmail: async (root, { input }) => await updateEmailService(input),
   }
 };
+
+export default ControllerEmails;

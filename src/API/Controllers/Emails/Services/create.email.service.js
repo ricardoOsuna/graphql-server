@@ -1,5 +1,5 @@
 import { Emails } from "../../../../db";
-import clientsItems from "../../../Enums/clients.items";
+import clientsItems from "../../../Models/Enums/clients.items";
 import createItemHelper from "../../../Helpers/Items/create.item.helper";
 
 /**
